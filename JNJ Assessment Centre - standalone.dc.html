@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail" data-bg-color="#101B33">
+  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="100" cy="100" r="58" fill="none" stroke="#C9A24B" stroke-width="2"/>
+    <text x="100" y="112" font-family="serif" font-size="34" fill="#E4C77E" text-anchor="middle">JNJ</text>
+  </svg>
+</template>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#FAF7F2; }
+  * { box-sizing:border-box; }
+  ::selection { background:#C9A24B; color:#101B33; }
+  @keyframes pulseDot { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+  @keyframes spin { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+  input::placeholder, textarea::placeholder { color:#a39c92; }
+</style>
+</helmet>
+
+<div style="font-family:'Public Sans',sans-serif;color:#1B1B1E;min-height:100vh;background:#FAF7F2;display:flex;flex-direction:column;">
+
+  <!-- TOP NAV -->
+  <div style="position:sticky;top:0;z-index:40;background:#101B33;border-bottom:1px solid #23305a;">
+    <div style="max-width:1280px;margin:0 auto;padding:{{ headerPad }};display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:44px;">
+      <div style="display:flex;align-items:center;gap:10px;cursor:pointer;min-width:0;" onClick="{{ goHome }}">
+        <div style="width:{{ crestSize }};height:{{ crestSize }};border-radius:50%;border:1px solid #C9A24B;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <span style="font-family:'Newsreader',serif;color:#E4C77E;font-size:{{ crestFontSize }};letter-spacing:0.5px;">JNJ</span>
+        </div>
+        <div style="min-width:0;">
+          <div style="font-family:'Newsreader',serif;color:#fff;font-size:{{ titleFontSize }};line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Janet 'N' John College</div>
+          <div style="color:#9aa5c2;font-size:{{ subtitleFontSize }};letter-spacing:0.6px;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Digital Assessment Centre</div>
+        </div>
+      </div>
+
+      <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ true }}">
+        <button style="background:none;border:none;color:#fff;font-size:24px;cursor:pointer;padding:6px 8px;flex-shrink:0;min-height:44px;" onClick="{{ toggleMobileNav }}">☰</button>
+      </sc-if>
+
+      <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;justify-content:flex-end;">
+          <button style="background:none;border:none;color:#c9d0e6;font-size:13px;padding:8px 12px;border-radius:4px;cursor:pointer;font-family:'Public Sans',sans-serif;" style-hover="background:#1a274e;color:#fff;" onClick="{{ goHome }}">Demo Home</button>
+          <button style="background:none;border:none;color:#c9d0e6;font-size:13px;padding:8px 12px;border-radius:4px;cursor:pointer;font-family:'Public Sans',sans-serif;" style-hover="background:#1a274e;color:#fff;" onClick="{{ goToAdmissions }}">Admissions</button>
+          <button style="background:none;border:none;color:#c9d0e6;font-size:13px;padding:8px 12px;border-radius:4px;cursor:pointer;font-family:'Public Sans',sans-serif;" style-hover="background:#1a274e;color:#fff;" onClick="{{ goToAsStudent }}">Student Experience</button>
+          <button style="background:none;border:none;color:#c9d0e6;font-size:13px;padding:8px 12px;border-radius:4px;cursor:pointer;font-family:'Public Sans',sans-serif;" style-hover="background:#1a274e;color:#fff;" onClick="{{ goToManagement }}">Management Dashboard</button>
+          <button style="background:#6E1F2A;border:1px solid #8a2c39;color:#fff;font-size:13px;padding:8px 16px;border-radius:4px;cursor:pointer;font-family:'Public Sans',sans-serif;font-weight:600;margin-left:8px;" style-hover="background:#7d2531;" onClick="{{ startGuided }}">Start Guided Demo</button>
+        </div>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ mobileNavOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;flex-direction:column;gap:2px;padding:8px 20px 16px;border-top:1px solid #23305a;">
+        <button style="background:none;border:none;color:#c9d0e6;font-size:15px;padding:12px 4px;text-align:left;cursor:pointer;min-height:44px;" onClick="{{ goHome }}">Demo Home</button>
+        <button style="background:none;border:none;color:#c9d0e6;font-size:15px;padding:12px 4px;text-align:left;cursor:pointer;min-height:44px;" onClick="{{ goToAdmissions }}">Admissions</button>
+        <button style="background:none;border:none;color:#c9d0e6;font-size:15px;padding:12px 4px;text-align:left;cursor:pointer;min-height:44px;" onClick="{{ goToAsStudent }}">Student Experience</button>
+        <button style="background:none;border:none;color:#c9d0e6;font-size:15px;padding:12px 4px;text-align:left;cursor:pointer;min-height:44px;" onClick="{{ goToManagement }}">Management Dashboard</button>
+        <button style="background:#6E1F2A;border:none;color:#fff;font-size:15px;padding:13px;border-radius:4px;cursor:pointer;margin-top:6px;font-weight:600;min-height:44px;" onClick="{{ startGuided }}">Start Guided Demo</button>
+      </div>
+    </sc-if>
+  </div>
+
+  <!-- GUIDED DEMO BANNER -->
+  <sc-if value="{{ guidedActive }}" hint-placeholder-val="{{ false }}">
+    <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+      <div style="background:#1B274F;border-bottom:1px solid #2c3a68;">
+        <div style="max-width:1280px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:12px;min-width:0;">
+            <span style="background:#C9A24B;color:#101B33;font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;white-space:nowrap;">STEP {{ guidedStepNum }} / {{ guidedTotal }}</span>
+            <span style="color:#fff;font-size:13.5px;font-family:'Newsreader',serif;font-style:italic;">{{ guidedCaption }}</span>
+          </div>
+          <div style="display:flex;gap:8px;flex-shrink:0;">
+            <button style="background:none;border:1px solid #465384;color:#c9d0e6;font-size:12.5px;padding:7px 12px;border-radius:4px;cursor:pointer;" style-hover="background:#26325c;" onClick="{{ prevGuidedStep }}">Previous Step</button>
+            <sc-if value="{{ guidedIsLast }}" hint-placeholder-val="{{ false }}">
+              <button style="background:#C9A24B;border:none;color:#101B33;font-size:12.5px;font-weight:700;padding:7px 14px;border-radius:4px;cursor:pointer;" style-hover="background:#E4C77E;" onClick="{{ finishGuidedDemo }}">Finish Demo</button>
+            </sc-if>
+            <sc-if value="{{ guidedIsNotLast }}" hint-placeholder-val="{{ true }}">
+              <button style="background:#C9A24B;border:none;color:#101B33;font-size:12.5px;font-weight:700;padding:7px 14px;border-radius:4px;cursor:pointer;" style-hover="background:#E4C77E;" onClick="{{ nextGuidedStep }}">Next Demo Step</button>
+            </sc-if>
+            <button style="background:none;border:none;color:#8b96b8;font-size:18px;cursor:pointer;padding:0 4px;" onClick="{{ exitGuided }}">×</button>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+      <div style="position:fixed;left:0;right:0;bottom:0;z-index:50;background:#1B274F;border-top:1px solid #2c3a68;box-shadow:0 -4px 16px rgba(0,0,0,0.25);padding:10px 14px 12px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;">
+          <div style="display:flex;align-items:center;gap:8px;min-width:0;">
+            <span style="background:#C9A24B;color:#101B33;font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:20px;white-space:nowrap;flex-shrink:0;">STEP {{ guidedStepNum }} / {{ guidedTotal }}</span>
+            <span style="color:#fff;font-size:12px;font-family:'Newsreader',serif;font-style:italic;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ guidedCaption }}</span>
+          </div>
+          <button style="background:none;border:none;color:#8b96b8;font-size:20px;cursor:pointer;padding:0 4px;flex-shrink:0;" onClick="{{ exitGuided }}">×</button>
+        </div>
+        <div style="display:flex;gap:8px;">
+          <button style="flex:1;background:none;border:1px solid #465384;color:#c9d0e6;font-size:13px;padding:11px 8px;border-radius:4px;cursor:pointer;min-height:44px;" onClick="{{ prevGuidedStep }}">Previous</button>
+          <sc-if value="{{ guidedIsLast }}" hint-placeholder-val="{{ false }}">
+            <button style="flex:1;background:#C9A24B;border:none;color:#101B33;font-size:13px;font-weight:700;padding:11px 8px;border-radius:4px;cursor:pointer;min-height:44px;" onClick="{{ finishGuidedDemo }}">Finish Demo</button>
+          </sc-if>
+          <sc-if value="{{ guidedIsNotLast }}" hint-placeholder-val="{{ true }}">
+            <button style="flex:1;background:#C9A24B;border:none;color:#101B33;font-size:13px;font-weight:700;padding:11px 8px;border-radius:4px;cursor:pointer;min-height:44px;" onClick="{{ nextGuidedStep }}">Next</button>
+          </sc-if>
+        </div>
+      </div>
+      <div style="height:84px;"></div>
+    </sc-if>
+  </sc-if>
+
+  <div style="flex:1;">
+
+  <!-- ============ SCREEN: HOME ============ -->
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+    <div>
+      <div style="background:linear-gradient(180deg,#101B33 0%,#16234a 100%);padding:{{ heroPad }};text-align:center;">
+        <div style="max-width:760px;margin:0 auto;">
+          <div style="width:76px;height:76px;border-radius:50%;border:1px solid #C9A24B;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;">
+            <span style="font-family:'Newsreader',serif;color:#E4C77E;font-size:24px;">JNJ</span>
+          </div>
+          <div style="color:#9aa5c2;font-size:12.5px;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">Janet 'N' John College</div>
+          <h1 style="font-family:'Newsreader',serif;color:#fff;font-size:{{ heroHeadline }};font-weight:500;line-height:1.15;margin:0 0 16px;">Digital Assessment Centre</h1>
+          <p style="color:#c9d0e6;font-size:15.5px;line-height:1.6;max-width:560px;margin:0 auto 28px;">A digital assessment platform for entrance examinations, internal assessments, mock examinations and student performance tracking.</p>
+
+          <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;flex-direction:column;gap:12px;max-width:340px;margin:0 auto;">
+              <button style="background:#C9A24B;border:none;color:#101B33;font-size:15px;font-weight:700;padding:16px 22px;border-radius:4px;cursor:pointer;font-family:'Public Sans',sans-serif;min-height:44px;" onClick="{{ startGuided }}">Start Guided Demo</button>
+              <button style="background:transparent;border:1px solid #465384;color:#fff;font-size:14px;font-weight:600;padding:14px 22px;border-radius:4px;cursor:pointer;font-family:'Public Sans',sans-serif;min-height:44px;" onClick="{{ goToAsStudent }}">Explore as Student</button>
+              <button style="background:none;border:none;color:#9aa5c2;font-size:13px;font-weight:600;padding:8px;cursor:pointer;text-decoration:underline;font-family:'Public Sans',sans-serif;" onClick="{{ goToManagement }}">View Management Dashboard</button>
+            </div>
+          </sc-if>
+          <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+              <button style="background:#C9A24B;border:none;color:#101B33;font-size:14.5px;font-weight:700;padding:15px 26px;border-radius:4px;cursor:pointer;font-family:'Public Sans',sans-serif;" style-hover="background:#E4C77E;" onClick="{{ goToAsStudent }}">Experience as a Student</button>
+              <button style="background:transparent;border:1px solid #465384;color:#fff;font-size:14.5px;font-weight:600;padding:15px 26px;border-radius:4px;cursor:pointer;font-family:'Public Sans',sans-serif;" style-hover="background:#1a274e;" onClick="{{ goToManagement }}">View Management Dashboard</button>
+              <button style="background:transparent;border:1px solid #465384;color:#fff;font-size:14.5px;font-weight:600;padding:15px 26px;border-radius:4px;cursor:pointer;font-family:'Public Sans',sans-serif;" style-hover="background:#1a274e;" onClick="{{ goToAdmissions }}">Explore Entrance Admissions</button>
+            </div>
+          </sc-if>
+        </div>
+      </div>
+
+      <div style="max-width:1120px;margin:0 auto;padding:64px 24px;">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;">
+          <div style="background:#fff;border:1px solid #E7E1D6;border-radius:6px;padding:26px;">
+            <div style="font-family:'Newsreader',serif;font-size:18px;color:#101B33;margin-bottom:10px;">Entrance Assessments</div>
+            <div style="color:#6b6560;font-size:14px;line-height:1.55;">Run and manage candidate entrance examinations digitally.</div>
+          </div>
+          <div style="background:#fff;border:1px solid #E7E1D6;border-radius:6px;padding:26px;">
+            <div style="font-family:'Newsreader',serif;font-size:18px;color:#101B33;margin-bottom:10px;">Student Assessments</div>
+            <div style="color:#6b6560;font-size:14px;line-height:1.55;">Conduct internal tests, mocks and computer-based practice.</div>
+          </div>
+          <div style="background:#fff;border:1px solid #E7E1D6;border-radius:6px;padding:26px;">
+            <div style="font-family:'Newsreader',serif;font-size:18px;color:#101B33;margin-bottom:10px;">Performance Insights</div>
+            <div style="color:#6b6560;font-size:14px;line-height:1.55;">Understand student, class and subject performance.</div>
+          </div>
+          <div style="background:#fff;border:1px solid #E7E1D6;border-radius:6px;padding:26px;">
+            <div style="font-family:'Newsreader',serif;font-size:18px;color:#101B33;margin-bottom:10px;">Modern Admissions Experience</div>
+            <div style="color:#6b6560;font-size:14px;line-height:1.55;">Make registration, entrance assessment and admission decisions feel more organised and professional for parents.</div>
+          </div>
+        </div>
+
+        <div style="margin-top:64px;text-align:center;">
+          <div style="color:#8a2c39;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;margin-bottom:10px;">Explore the Demo</div>
+          <h2 style="font-family:'Newsreader',serif;font-size:26px;color:#101B33;margin:0 0 28px;">Three ways to see it in action</h2>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;max-width:900px;margin:0 auto;">
+            <div style="background:#fff;border:1px solid #E7E1D6;border-radius:6px;padding:28px 22px;cursor:pointer;" style-hover="border-color:#C9A24B;box-shadow:0 4px 16px rgba(16,27,51,0.08);" onClick="{{ goToAsStudent }}">
+              <div style="font-size:13px;color:#8a2c39;font-weight:700;letter-spacing:0.5px;margin-bottom:8px;">01</div>
+              <div style="font-family:'Newsreader',serif;font-size:17px;color:#101B33;margin-bottom:8px;">Experience as a Student</div>
+              <div style="color:#6b6560;font-size:13.5px;line-height:1.5;">See how a candidate sits an assessment.</div>
+            </div>
+            <div style="background:#fff;border:1px solid #E7E1D6;border-radius:6px;padding:28px 22px;cursor:pointer;" style-hover="border-color:#C9A24B;box-shadow:0 4px 16px rgba(16,27,51,0.08);" onClick="{{ goToManagement }}">
+              <div style="font-size:13px;color:#8a2c39;font-weight:700;letter-spacing:0.5px;margin-bottom:8px;">02</div>
+              <div style="font-family:'Newsreader',serif;font-size:17px;color:#101B33;margin-bottom:8px;">View Management Dashboard</div>
+              <div style="color:#6b6560;font-size:13.5px;line-height:1.5;">See how management monitors candidates and results.</div>
+            </div>
+            <div style="background:#fff;border:1px solid #E7E1D6;border-radius:6px;padding:28px 22px;cursor:pointer;" style-hover="border-color:#C9A24B;box-shadow:0 4px 16px rgba(16,27,51,0.08);" onClick="{{ goToAdmissions }}">
+              <div style="font-size:13px;color:#8a2c39;font-weight:700;letter-spacing:0.5px;margin-bottom:8px;">03</div>
+              <div style="font-family:'Newsreader',serif;font-size:17px;color:#101B33;margin-bottom:8px;">Explore Entrance Admissions</div>
+              <div style="color:#6b6560;font-size:13.5px;line-height:1.5;">See the public-facing admissions and registration flow.</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:64px;background:#F3EEE4;border-radius:6px;padding:36px 32px;display:grid;grid-template-columns:1fr 1.4fr;gap:32px;align-items:center;">
+          <div>
+            <div style="font-family:'Newsreader',serif;font-size:22px;color:#101B33;">What this gives Janet 'N' John</div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px 24px;">
+            <div style="color:#3a352f;font-size:14px;">— More organised assessment administration</div>
+            <div style="color:#3a352f;font-size:14px;">— More CBT exposure for students</div>
+            <div style="color:#3a352f;font-size:14px;">— Faster access to assessment results</div>
+            <div style="color:#3a352f;font-size:14px;">— Better visibility into academic performance</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ============ SCREEN: ADMISSIONS ============ -->
+  <sc-if value="{{ isAdmissions }}" hint-placeholder-val="{{ false }}">
+    <div>
+      <div style="background:linear-gradient(180deg,#101B33 0%,#16234a 100%);padding:{{ admHeroPad }};text-align:center;">
+        <div style="color:#C9A24B;font-size:12.5px;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;">2027/2028 Admissions</div>
+        <h1 style="font-family:'Newsreader',serif;color:#fff;font-size:{{ admHeadline }};font-weight:500;max-width:680px;margin:0 auto 18px;line-height:1.2;">Give Your Child the Janet 'N' John Advantage</h1>
+        <p style="color:#c9d0e6;font-size:16px;max-width:520px;margin:0 auto 32px;">Register your child for the Janet 'N' John College Entrance Assessment.</p>
+        <button style="background:#C9A24B;border:none;color:#101B33;font-size:15px;font-weight:700;padding:16px 30px;border-radius:4px;cursor:pointer;" style-hover="background:#E4C77E;" onClick="{{ goToRegister }}">Register for Entrance Assessment</button>
+      </div>
+
+      <div style="max-width:1080px;margin:0 auto;padding:64px 24px;">
+        <div style="text-align:center;margin-bottom:20px;color:#8a2c39;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;">Admission Classes</div>
+        <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:64px;">
+          <sc-for list="{{ admissionClasses }}" as="cls" hint-placeholder-count="5">
+            <div style="background:#fff;border:1px solid #E7E1D6;border-radius:6px;padding:16px 30px;font-family:'Newsreader',serif;font-size:18px;color:#101B33;">{{ cls }}</div>
+          </sc-for>
+        </div>
+
+        <div style="display:grid;grid-template-columns:{{ twoColGrid }};gap:40px;align-items:start;">
+          <div>
+            <h2 style="font-family:'Newsreader',serif;font-size:24px;color:#101B33;margin:0 0 22px;">Why Janet 'N' John?</h2>
+            <div style="display:flex;flex-direction:column;gap:16px;">
+              <div style="display:flex;gap:12px;align-items:flex-start;">
+                <div style="width:8px;height:8px;border-radius:50%;background:#C9A24B;margin-top:7px;flex-shrink:0;"></div>
+                <div style="font-size:15px;color:#3a352f;">Academic Excellence</div>
+              </div>
+              <div style="display:flex;gap:12px;align-items:flex-start;">
+                <div style="width:8px;height:8px;border-radius:50%;background:#C9A24B;margin-top:7px;flex-shrink:0;"></div>
+                <div style="font-size:15px;color:#3a352f;">Modern Learning</div>
+              </div>
+              <div style="display:flex;gap:12px;align-items:flex-start;">
+                <div style="width:8px;height:8px;border-radius:50%;background:#C9A24B;margin-top:7px;flex-shrink:0;"></div>
+                <div style="font-size:15px;color:#3a352f;">Strong Examination Preparation</div>
+              </div>
+              <div style="display:flex;gap:12px;align-items:flex-start;">
+                <div style="width:8px;height:8px;border-radius:50%;background:#C9A24B;margin-top:7px;flex-shrink:0;"></div>
+                <div style="font-size:15px;color:#3a352f;">Digital Assessment Experience</div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h2 style="font-family:'Newsreader',serif;font-size:24px;color:#101B33;margin:0 0 22px;">Entrance Assessment Process</h2>
+            <div style="display:flex;flex-direction:column;gap:14px;">
+              <sc-for list="{{ processSteps }}" as="step" hint-placeholder-count="6">
+                <div style="display:flex;gap:14px;align-items:center;">
+                  <div style="width:28px;height:28px;border-radius:50%;background:#101B33;color:#E4C77E;font-size:12.5px;font-family:'Newsreader',serif;display:flex;align-items:center;justify-content:center;flex-shrink:0;">{{ step.n }}</div>
+                  <div style="font-size:14.5px;color:#3a352f;">{{ step.label }}</div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ============ SCREEN: REGISTER ============ -->
+  <sc-if value="{{ isRegister }}" hint-placeholder-val="{{ false }}">
+    <div style="max-width:720px;margin:0 auto;padding:56px 24px 80px;">
+
+      <sc-if value="{{ registered }}" hint-placeholder-val="{{ false }}">
+        <div style="background:#fff;border:1px solid #E7E1D6;border-radius:8px;padding:48px 40px;text-align:center;">
+          <div style="width:56px;height:56px;border-radius:50%;background:#F3EEE4;color:#8a2c39;display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 20px;">✓</div>
+          <h2 style="font-family:'Newsreader',serif;font-size:26px;color:#101B33;margin:0 0 8px;">Registration Successful</h2>
+          <p style="color:#6b6560;font-size:14px;margin:0 0 32px;">The candidate's entrance assessment record has been created.</p>
+
+          <div style="background:#FAF7F2;border-radius:6px;padding:24px;text-align:left;display:grid;grid-template-columns:{{ twoColGrid }};gap:20px;margin-bottom:32px;">
+            <div><div style="font-size:11px;color:#8a827a;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">Candidate</div><div style="font-size:15px;color:#101B33;font-weight:600;">{{ candidateName }}</div></div>
+            <div><div style="font-size:11px;color:#8a827a;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">Examination Number</div><div style="font-size:15px;color:#101B33;font-weight:600;">{{ examNumber }}</div></div>
+            <div><div style="font-size:11px;color:#8a827a;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">Class</div><div style="font-size:15px;color:#101B33;font-weight:600;">{{ reg.classApplying }}</div></div>
+            <div><div style="font-size:11px;color:#8a827a;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">Exam Date</div><div style="font-size:15px;color:#101B33;font-weight:600;">{{ reg.examDate }}</div></div>
+            <div><div style="font-size:11px;color:#8a827a;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">Time</div><div style="font-size:15px;color:#101B33;font-weight:600;">9:00 AM</div></div>
+          </div>
+
+          <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+            <button style="background:transparent;border:1px solid #101B33;color:#101B33;font-size:14px;font-weight:600;padding:13px 22px;border-radius:4px;cursor:pointer;" onClick="{{ viewSlip }}">View Examination Slip</button>
+            <button style="background:#101B33;border:none;color:#fff;font-size:14px;font-weight:600;padding:13px 22px;border-radius:4px;cursor:pointer;" style-hover="background:#16234a;" onClick="{{ continueToDashboard }}">Continue to Candidate Dashboard</button>
+          </div>
+        </div>
+
+        <sc-if value="{{ showSlip }}" hint-placeholder-val="{{ false }}">
+          <div style="position:fixed;inset:0;background:rgba(16,27,51,0.55);display:flex;align-items:center;justify-content:center;z-index:60;padding:24px;" onClick="{{ closeSlip }}">
+            <div style="background:#fff;border-radius:8px;padding:36px;max-width:420px;width:100%;" onClick="{{ stopProp }}">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+                <div style="font-family:'Newsreader',serif;font-size:18px;color:#101B33;">Examination Slip</div>
+                <button style="background:none;border:none;font-size:20px;color:#8a827a;cursor:pointer;" onClick="{{ closeSlip }}">×</button>
+              </div>
+              <div style="border:1px dashed #C9A24B;border-radius:6px;padding:22px;">
+                <div style="text-align:center;margin-bottom:16px;">
+                  <div style="font-family:'Newsreader',serif;font-size:13px;color:#101B33;">Janet 'N' John College — Entrance Examination</div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:10px;font-size:13.5px;">
+                  <div style="display:flex;justify-content:space-between;"><span style="color:#8a827a;">Candidate</span><span style="color:#101B33;font-weight:600;">{{ candidateName }}</span></div>
+                  <div style="display:flex;justify-content:space-between;"><span style="color:#8a827a;">Exam Number</span><span style="color:#101B33;font-weight:600;">{{ examNumber }}</span></div>
+                  <div style="display:flex;justify-content:space-between;"><span style="color:#8a827a;">Class</span><span style="color:#101B33;font-weight:600;">{{ reg.classApplying }}</span></div>
+                  <div style="display:flex;justify-content:space-between;"><span style="color:#8a827a;">Date</span><span style="color:#101B33;font-weight:600;">{{ reg.examDate }}</span></div>
+                  <div style="display:flex;justify-content:space-between;"><span style="color:#8a827a;">Time</span><span style="color:#101B33;font-weight:600;">9:00 AM</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+      </sc-if>
+
+      <sc-if value="{{ registerNotDone }}" hint-placeholder-val="{{ true }}">
+        <div style="margin-bottom:32px;">
+          <div style="color:#8a2c39;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;margin-bottom:10px;">Entrance Assessment</div>
+          <h1 style="font-family:'Newsreader',serif;font-size:28px;color:#101B33;margin:0 0 20px;">Candidate Registration</h1>
+          <div style="display:flex;gap:6px;">
+            <sc-for list="{{ stepIndicators }}" as="ind" hint-placeholder-count="4">
+              <div style="height:4px;flex:1;border-radius:2px;background:{{ ind.color }};"></div>
+            </sc-for>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:11.5px;color:#8a827a;">
+            <span>Candidate Details</span><span>Admission Details</span><span>Parent / Guardian</span><span>Additional Info</span>
+          </div>
+        </div>
+
+        <div style="background:#fff;border:1px solid #E7E1D6;border-radius:8px;padding:36px;">
+
+          <sc-if value="{{ regStep1 }}" hint-placeholder-val="{{ true }}">
+            <div style="font-family:'Newsreader',serif;font-size:19px;color:#101B33;margin-bottom:22px;">Candidate Details</div>
+            <div style="display:grid;grid-template-columns:{{ twoColGrid }};gap:18px;margin-bottom:18px;">
+              <div><label style="font-size:12.5px;color:#6b6560;display:block;margin-bottom:6px;">First Name</label><input style="width:100%;padding:11px 13px;border:1px solid #DDD6C8;border-radius:4px;font-size:14px;font-family:inherit;" value="{{ reg.firstName }}" onChange="{{ firstNameChange }}"></div>
+              <div><label style="font-size:12.5px;color:#6b6560;display:block;margin-bottom:6px;">Last Name</label><input style="width:100%;padding:11px 13px;border:1px solid #DDD6C8;border-radius:4px;font-size:14px;font-family:inherit;" value="{{ reg.lastName }}" onChange="{{ lastNameChange }}"></div>
+            </div>
+            <div style="margin-bottom:18px;">
+              <label style="font-size:12.5px;color:#6b6560;display:block;margin-bottom:6px;">Gender</label>
+              <div style="display:flex;gap:10px;">
+                <sc-for list="{{ genderChips }}" as="opt" hint-placeholder-count="2">
+                  <button style="padding:10px 22px;border-radius:4px;font-size:13.5px;cursor:pointer;background:{{ opt.bg }};color:{{ opt.fg }};border:1px solid {{ opt.border }};" onClick="{{ opt.select }}">{{ opt.label }}</button>
+                </sc-for>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:{{ twoColGrid }};gap:18px;">
+              <div><label style="font-size:12.5px;color:#6b6560;display:block;margin-bottom:6px;">Date of Birth</label><input type="date" style="width:100%;padding:11px 13px;border:1px solid #DDD6C8;border-radius:4px;font-size:14px;font-family:inherit;" value="{{ reg.dob }}" onChange="{{ dobChange }}"></div>
+              <div><label style="font-size:12.5px;color:#6b6560;display:block;margin-bottom:6px;">Current School</label><input style="width:100%;padding:11px 13px;border:1px solid #DDD6C8;border-radius:4px;font-size:14px;font-family:inherit;" placeholder="e.g. Bright Stars Primary School" value="{{ reg.currentSchool }}" onChange="{{ currentSchoolChange }}"></div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ regStep2 }}" hint-placeholder-val="{{ false }}">
+            <div style="font-family:'Newsreader',serif;font-size:19px;color:#101B33;margin-bottom:22px;">Admission Details</div>
+            <div style="margin-bottom:20px;">
+              <label style="font-size:12.5px;color:#6b6560;display:block;margin-bottom:8px;">Class Applying For</label>
+              <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                <sc-for list="{{ classChips }}" as="opt" hint-placeholder-count="5">
+                  <button style="padding:10px 20px;border-radius:4px;font-size:13.5px;cursor:pointer;background:{{ opt.bg }};color:{{ opt.fg }};border:1px solid {{ opt.border }};" onClick="{{ opt.select }}">{{ opt.label }}</button>
+                </sc-for>
+              </div>
+            </div>
+            <div style="margin-bottom:20px;">
+              <label style="font-size:12.5px;color:#6b6560;display:block;margin-bottom:6px;">Academic Session</label>
+              <input style="width:100%;padding:11px 13px;border:1px solid #DDD6C8;border-radius:4px;font-size:14px;font-family:inherit;" value="{{ reg.session }}" disabled="{{ true }}">
+            </div>
+            <div>
+              <label style="font-size:12.5px;color:#6b6560;display:block;margin-bottom:8px;">Preferred Entrance Examination Date</label>
+              <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                <sc-for list="{{ examDateChips }}" as="opt" hint-placeholder-count="2">
+                  <button style="padding:10px 18px;border-radius:4px;font-size:13.5px;cursor:pointer;background:{{ opt.bg }};color:{{ opt.fg }};border:1px solid {{ opt.border }};" onClick="{{ opt.select }}">{{ opt.label }}</button>
+                </sc-for>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ regStep3 }}" hint-placeholder-val="{{ false }}">
+            <div style="font-family:'Newsreader',serif;font-size:19px;color:#101B33;margin-bottom:22px;">Parent / Guardian</div>
+            <div style="display:flex;flex-direction:column;gap:18px;">
+              <div><label style="font-size:12.5px;color:#6b6560;display:block;margin-bottom:6px;">Parent Name</label><input style="width:100%;padding:11px 13px;border:1px solid #DDD6C8;border-radius:4px;font-size:14px;font-family:inherit;" value="{{ reg.parentName }}" onChange="{{ parentNameChange }}"></div>
+              <div style="display:grid;grid-template-columns:{{ twoColGrid }};gap:18px;">
+                <div><label style="font-size:12.5px;color:#6b6560;display:block;margin-bottom:6px;">Phone</label><input style="width:100%;padding:11px 13px;border:1px solid #DDD6C8;border-radius:4px;font-size:14px;font-family:inherit;" value="{{ reg.parentPhone }}" onChange="{{ parentPhoneChange }}"></div>
+                <div><label style="font-size:12.5px;color:#6b6560;display:block;margin-bottom:6px;">Email</label><input style="width:100%;padding:11px 13px;border:1px solid #DDD6C8;border-radius:4px;font-size:14px;font-family:inherit;" value="{{ reg.parentEmail }}" onChange="{{ parentEmailChange }}"></div>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ regStep4 }}" hint-placeholder-val="{{ false }}">
+            <div style="font-family:'Newsreader',serif;font-size:19px;color:#101B33;margin-bottom:22px;">Additional Information</div>
+            <div style="margin-bottom:20px;">
+              <label style="font-size:12.5px;color:#6b6560;display:block;margin-bottom:8px;">Passport Photo</label>
+              <div style="border:1px dashed #DDD6C8;border-radius:6px;padding:28px;text-align:center;color:#a39c92;font-size:12.5px;font-family:monospace;">drop passport photo here (optional)</div>
+            </div>
+            <div style="margin-bottom:20px;">
+              <label style="font-size:12.5px;color:#6b6560;display:block;margin-bottom:6px;">Previous School</label>
+              <input style="width:100%;padding:11px 13px;border:1px solid #DDD6C8;border-radius:4px;font-size:14px;font-family:inherit;" value="{{ reg.currentSchool }}" onChange="{{ currentSchoolChange }}">
+            </div>
+            <div>
+              <label style="font-size:12.5px;color:#6b6560;display:block;margin-bottom:6px;">Optional Note</label>
+              <textarea style="width:100%;padding:11px 13px;border:1px solid #DDD6C8;border-radius:4px;font-size:14px;font-family:inherit;min-height:80px;" value="{{ reg.note }}" onChange="{{ noteChange }}"></textarea>
+            </div>
+          </sc-if>
+
+          <div style="display:flex;justify-content:space-between;margin-top:32px;">
+            <button style="background:none;border:1px solid #DDD6C8;color:#3a352f;font-size:13.5px;font-weight:600;padding:12px 22px;border-radius:4px;cursor:pointer;visibility:{{ backVisibility }};" onClick="{{ regBack }}">Back</button>
+            <sc-if value="{{ regStep4 }}" hint-placeholder-val="{{ false }}">
+              <button style="background:#101B33;border:none;color:#fff;font-size:13.5px;font-weight:600;padding:12px 26px;border-radius:4px;cursor:pointer;display:flex;align-items:center;gap:8px;" style-hover="background:#16234a;" onClick="{{ submitRegistration }}">
+                <sc-if value="{{ submitting }}" hint-placeholder-val="{{ false }}"><div style="width:13px;height:13px;border-radius:50%;border:2px solid #465384;border-top-color:#fff;animation:spin 0.7s linear infinite;"></div></sc-if>
+                Submit Registration
+              </button>
+            </sc-if>
+            <sc-if value="{{ regNotStep4 }}" hint-placeholder-val="{{ true }}">
+              <button style="background:#101B33;border:none;color:#fff;font-size:13.5px;font-weight:600;padding:12px 26px;border-radius:4px;cursor:pointer;" style-hover="background:#16234a;" onClick="{{ regNext }}">Continue</button>
+            </sc-if>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+  </sc-if>
+
+  <!-- ============ SCREEN: DASHBOARD ============ -->
+  <sc-if value="{{ isDashboard }}" hint-placeholder-val="{{ false }}">
+    <div style="max-width:1040px;margin:0 auto;padding:48px 24px 80px;">
+      <div style="font-family:'Newsreader',serif;font-style:italic;color:#8a827a;font-size:13.5px;margin-bottom:20px;">See how a student could sit an assessment.</div>
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;margin-bottom:36px;">
+        <div>
+          <h1 style="font-family:'Newsreader',serif;font-size:30px;color:#101B33;margin:0 0 6px;">Welcome, {{ reg.firstName }}</h1>
+          <div style="color:#8a827a;font-size:13.5px;">Candidate ID: <span style="color:#101B33;font-weight:600;">{{ examNumber }}</span></div>
+        </div>
+      </div>
+
+      <div style="background:#101B33;border-radius:8px;padding:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;margin-bottom:32px;">
+        <div>
+          <div style="color:#C9A24B;font-size:11.5px;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">Upcoming Assessment</div>
+          <div style="font-family:'Newsreader',serif;color:#fff;font-size:20px;margin-bottom:6px;">Janet 'N' John Entrance Examination</div>
+          <div style="color:#9aa5c2;font-size:13.5px;">60 Minutes · Mathematics</div>
+        </div>
+        <button style="background:#C9A24B;border:none;color:#101B33;font-size:14px;font-weight:700;padding:15px 28px;border-radius:4px;cursor:pointer;flex-shrink:0;" style-hover="background:#E4C77E;" onClick="{{ startExam }}">Start Examination</button>
+      </div>
+
+      <div style="display:grid;grid-template-columns:{{ dashboardGrid }};gap:24px;">
+        <div>
+          <div style="font-family:'Newsreader',serif;font-size:17px;color:#101B33;margin-bottom:14px;">Recent Assessments</div>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:32px;">
+            <sc-for list="{{ recentAssessments }}" as="a" hint-placeholder-count="3">
+              <div style="background:#fff;border:1px solid #E7E1D6;border-radius:6px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;">
+                <div><div style="font-size:14px;color:#101B33;font-weight:600;">{{ a.title }}</div><div style="font-size:12px;color:#8a827a;margin-top:2px;">{{ a.sub }}</div></div>
+                <div style="font-family:'Newsreader',serif;font-size:16px;color:#8a2c39;">{{ a.score }}</div>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="font-family:'Newsreader',serif;font-size:17px;color:#101B33;margin-bottom:14px;">Practice Subjects</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;">
+            <sc-for list="{{ subjects }}" as="sub" hint-placeholder-count="9">
+              <div style="background:#fff;border:1px solid #E7E1D6;border-radius:6px;padding:14px 16px;font-size:13.5px;color:#3a352f;cursor:pointer;" style-hover="border-color:#C9A24B;">{{ sub }}</div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-family:'Newsreader',serif;font-size:17px;color:#101B33;margin-bottom:14px;">Assessment History</div>
+          <div style="background:#fff;border:1px solid #E7E1D6;border-radius:6px;padding:6px;">
+            <sc-for list="{{ historyItems }}" as="h" hint-placeholder-count="4">
+              <div style="padding:14px 14px;border-bottom:1px solid #F0EBE0;">
+                <div style="font-size:13px;color:#101B33;font-weight:600;">{{ h.type }}</div>
+                <div style="font-size:11.5px;color:#8a827a;margin-top:3px;">{{ h.date }} · {{ h.score }}</div>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="font-family:'Newsreader',serif;font-size:15px;color:#101B33;margin:26px 0 12px;">Existing Student Assessments</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <sc-for list="{{ examTypes }}" as="t" hint-placeholder-count="6">
+              <div style="background:#fff;border:1px solid #E7E1D6;border-radius:6px;padding:12px 16px;font-size:13px;color:#3a352f;cursor:pointer;" style-hover="border-color:#C9A24B;">{{ t }}</div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ============ SCREEN: EXAM ============ -->
+  <sc-if value="{{ isExam }}" hint-placeholder-val="{{ false }}">
+    <div style="background:#F3EEE4;min-height:100%;">
+      <div style="background:#101B33;padding:16px 20px;position:sticky;top:0;z-index:20;">
+        <div style="max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+          <div>
+            <div style="font-family:'Newsreader',serif;color:#fff;font-size:16px;">Janet 'N' John College — Entrance Examination</div>
+            <div style="color:#9aa5c2;font-size:12.5px;margin-top:3px;">Candidate: {{ candidateName }} · Subject: Mathematics</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:20px;">
+            <div style="display:flex;align-items:center;gap:6px;color:#9aa5c2;font-size:12px;"><div style="width:6px;height:6px;border-radius:50%;background:#C9A24B;animation:pulseDot 1.6s infinite;"></div>Auto-saved</div>
+            <div style="background:#1B274F;border:1px solid #2c3a68;color:#E4C77E;font-family:'Newsreader',serif;font-size:17px;padding:8px 18px;border-radius:4px;">{{ timerDisplay }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="max-width:1080px;margin:0 auto;padding:32px 24px 80px;display:grid;grid-template-columns:{{ examGrid }};gap:24px;">
+        <div style="background:#fff;border-radius:8px;padding:36px;">
+          <div style="color:#8a2c39;font-size:12.5px;font-weight:700;letter-spacing:0.5px;margin-bottom:18px;">QUESTION {{ questionNum }} OF 10</div>
+          <div style="font-size:18px;color:#101B33;line-height:1.55;margin-bottom:28px;">{{ questionText }}</div>
+
+          <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:32px;">
+            <sc-for list="{{ options }}" as="opt" hint-placeholder-count="4">
+              <div style="display:flex;align-items:center;gap:14px;padding:15px 18px;border:1px solid {{ opt.borderColor }};border-radius:6px;cursor:pointer;background:{{ opt.bg }};" onClick="{{ opt.select }}">
+                <div style="width:26px;height:26px;border-radius:50%;border:1px solid {{ opt.badgeBorder }};background:{{ opt.badgeBg }};color:{{ opt.badgeColor }};display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:700;flex-shrink:0;">{{ opt.letter }}</div>
+                <div style="font-size:14.5px;color:#1B1B1E;">{{ opt.text }}</div>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <button style="background:none;border:1px solid #DDD6C8;color:#3a352f;font-size:13.5px;font-weight:600;padding:12px 20px;border-radius:4px;cursor:pointer;" onClick="{{ prevQuestion }}" disabled="{{ isFirstQuestion }}">Previous</button>
+            <button style="background:none;border:1px solid {{ flagBorder }};color:{{ flagColor }};font-size:13.5px;font-weight:600;padding:12px 20px;border-radius:4px;cursor:pointer;" onClick="{{ toggleFlagCurrent }}">{{ flagLabel }}</button>
+            <button style="background:#101B33;border:none;color:#fff;font-size:13.5px;font-weight:600;padding:12px 26px;border-radius:4px;cursor:pointer;" style-hover="background:#16234a;" onClick="{{ nextQuestion }}" disabled="{{ isLastQuestion }}">Next</button>
+          </div>
+        </div>
+
+        <div>
+          <div style="background:#fff;border-radius:8px;padding:22px;margin-bottom:16px;">
+            <div style="font-size:12px;color:#8a827a;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:14px;">Question Navigator</div>
+            <div style="display:{{ navDisplay }};grid-template-columns:{{ navGridCols }};overflow-x:{{ navOverflow }};gap:8px;margin-bottom:16px;padding-bottom:2px;">
+              <sc-for list="{{ navItems }}" as="nav" hint-placeholder-count="10">
+                <button style="aspect-ratio:1;min-width:{{ navBtnMinWidth }};flex-shrink:0;border-radius:5px;font-size:13px;font-weight:600;cursor:pointer;background:{{ nav.bg }};color:{{ nav.fg }};border:1px solid {{ nav.border }};" onClick="{{ nav.goTo }}">{{ nav.n }}</button>
+              </sc-for>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:7px;font-size:11.5px;color:#6b6560;">
+              <div style="display:flex;align-items:center;gap:8px;"><div style="width:10px;height:10px;border-radius:2px;background:#101B33;"></div>Current</div>
+              <div style="display:flex;align-items:center;gap:8px;"><div style="width:10px;height:10px;border-radius:2px;background:#F3EEE4;border:1px solid #C9A24B;"></div>Answered</div>
+              <div style="display:flex;align-items:center;gap:8px;"><div style="width:10px;height:10px;border-radius:2px;background:#fff;border:1px solid #DDD6C8;"></div>Unanswered</div>
+              <div style="display:flex;align-items:center;gap:8px;"><div style="width:10px;height:10px;border-radius:2px;background:#F6E4E4;border:1px solid #8a2c39;"></div>Flagged</div>
+            </div>
+          </div>
+          <button style="width:100%;background:#6E1F2A;border:none;color:#fff;font-size:14px;font-weight:700;padding:15px;border-radius:6px;cursor:pointer;" style-hover="background:#7d2531;" onClick="{{ attemptSubmit }}">Submit Examination</button>
+        </div>
+      </div>
+
+      <sc-if value="{{ showSubmitModal }}" hint-placeholder-val="{{ false }}">
+        <div style="position:fixed;inset:0;background:rgba(16,27,51,0.55);display:flex;align-items:center;justify-content:center;z-index:60;padding:24px;">
+          <div style="background:#fff;border-radius:8px;padding:32px;max-width:400px;width:100%;text-align:center;">
+            <div style="font-family:'Newsreader',serif;font-size:18px;color:#101B33;margin-bottom:10px;">You still have {{ unansweredCount }} unanswered questions.</div>
+            <p style="color:#6b6560;font-size:13.5px;margin:0 0 24px;">You can go back and complete them, or submit as is.</p>
+            <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+              <button style="background:none;border:1px solid #DDD6C8;color:#3a352f;font-size:13.5px;font-weight:600;padding:12px 20px;border-radius:4px;cursor:pointer;" onClick="{{ cancelSubmit }}">Return to Exam</button>
+              <button style="background:#6E1F2A;border:none;color:#fff;font-size:13.5px;font-weight:600;padding:12px 20px;border-radius:4px;cursor:pointer;display:flex;align-items:center;gap:8px;" onClick="{{ finalizeSubmit }}">
+                <sc-if value="{{ submitting }}" hint-placeholder-val="{{ false }}"><div style="width:12px;height:12px;border-radius:50%;border:2px solid #a86b73;border-top-color:#fff;animation:spin 0.7s linear infinite;"></div></sc-if>
+                Submit Anyway
+              </button>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+  </sc-if>
+
+  <!-- ============ SCREEN: RESULT ============ -->
+  <sc-if value="{{ isResult }}" hint-placeholder-val="{{ false }}">
+    <div style="max-width:880px;margin:0 auto;padding:48px 24px 80px;">
+      <div style="font-family:'Newsreader',serif;font-size:12px;color:#8a2c39;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;margin-bottom:12px;">Entrance Examination Result</div>
+      <h1 style="font-family:'Newsreader',serif;font-size:28px;color:#101B33;margin:0 0 32px;">{{ candidateName }}</h1>
+
+      <div style="background:#101B33;border-radius:8px;padding:36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;margin-bottom:28px;">
+        <div>
+          <div style="color:#9aa5c2;font-size:12px;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">Overall Score</div>
+          <div style="font-family:'Newsreader',serif;color:#fff;font-size:{{ scoreFontSize }};line-height:1;">{{ overallScore }}%</div>
+        </div>
+        <div style="background:{{ statusBg }};color:{{ statusColor }};padding:10px 22px;border-radius:20px;font-size:13.5px;font-weight:700;">{{ statusLabel }}</div>
+      </div>
+
+      <div style="background:#fff;border:1px solid #E7E1D6;border-radius:8px;padding:28px;margin-bottom:28px;">
+        <div style="font-family:'Newsreader',serif;font-size:16px;color:#101B33;margin-bottom:4px;">Mathematics — Entrance Assessment</div>
+        <div style="font-size:12.5px;color:#8a827a;margin-bottom:20px;">This result reflects only the assessment the candidate completed.</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax({{ resultMinmax }},1fr));gap:20px;">
+          <div><div style="font-size:11.5px;color:#8a827a;text-transform:uppercase;">Questions Answered</div><div style="font-family:'Newsreader',serif;font-size:20px;color:#101B33;">{{ answeredCount }} / 10</div></div>
+          <div><div style="font-size:11.5px;color:#8a827a;text-transform:uppercase;">Correct</div><div style="font-family:'Newsreader',serif;font-size:20px;color:#101B33;">{{ correctCount }}</div></div>
+          <div><div style="font-size:11.5px;color:#8a827a;text-transform:uppercase;">Incorrect</div><div style="font-family:'Newsreader',serif;font-size:20px;color:#101B33;">{{ incorrectCount }}</div></div>
+          <div><div style="font-size:11.5px;color:#8a827a;text-transform:uppercase;">Unanswered</div><div style="font-family:'Newsreader',serif;font-size:20px;color:#101B33;">{{ unansweredCount }}</div></div>
+          <div><div style="font-size:11.5px;color:#8a827a;text-transform:uppercase;">Time Used</div><div style="font-family:'Newsreader',serif;font-size:20px;color:#101B33;">{{ timeUsedDisplay }}</div></div>
+        </div>
+      </div>
+
+      <div style="background:#F3EEE4;border-radius:8px;padding:22px 26px;font-size:13.5px;color:#3a352f;margin-bottom:28px;">Your official admission decision will be communicated by Janet 'N' John College.</div>
+
+      <button style="background:#101B33;border:none;color:#fff;font-size:14px;font-weight:600;padding:14px 24px;border-radius:4px;cursor:pointer;" style-hover="background:#16234a;" onClick="{{ retakePractice }}">Return to Dashboard</button>
+    </div>
+  </sc-if>
+
+  <!-- ============ SCREEN: MANAGEMENT ============ -->
+  <sc-if value="{{ isManagement }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;flex-direction:{{ mgmtWrapperDirection }};min-height:600px;">
+      <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+        <div style="width:220px;flex-shrink:0;background:#101B33;padding:28px 0;">
+          <div style="padding:0 24px 20px;color:#7c86ac;font-size:11px;text-transform:uppercase;letter-spacing:1px;">Assessment Administration</div>
+          <sc-for list="{{ sidebarItems }}" as="item" hint-placeholder-count="8">
+            <button style="display:block;width:100%;text-align:left;background:{{ item.bg }};border:none;border-left:2px solid {{ item.border }};color:{{ item.color }};font-size:13.5px;padding:12px 22px;cursor:pointer;font-family:'Public Sans',sans-serif;" onClick="{{ item.goTo }}">{{ item.label }}</button>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+        <div style="background:#101B33;padding:12px 16px;display:flex;gap:8px;overflow-x:auto;">
+          <sc-for list="{{ mobilePillItems }}" as="item" hint-placeholder-count="4">
+            <button style="flex-shrink:0;background:{{ item.bg }};color:{{ item.color }};border:none;border-radius:20px;font-size:12.5px;font-weight:600;padding:10px 16px;cursor:pointer;white-space:nowrap;min-height:40px;font-family:'Public Sans',sans-serif;" onClick="{{ item.goTo }}">{{ item.label }}</button>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <div style="flex:1;min-width:0;padding:{{ mgmtContentPad }};">
+        <div style="font-family:'Newsreader',serif;color:#101B33;font-size:15px;margin-bottom:2px;">Janet 'N' John College</div>
+        <div style="color:#8a827a;font-size:12px;margin-bottom:6px;">Assessment Administration</div>
+        <div style="font-family:'Newsreader',serif;font-style:italic;color:#8a827a;font-size:13px;margin-bottom:28px;">See how management can monitor candidates and results.</div>
+
+        <sc-if value="{{ isMgmtOverview }}" hint-placeholder-val="{{ true }}">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax({{ mgmtStatsMinmax }},1fr));gap:16px;margin-bottom:32px;">
+            <div style="background:#fff;border:1px solid #E7E1D6;border-radius:6px;padding:22px;"><div style="font-size:12px;color:#8a827a;margin-bottom:8px;">Registered Candidates</div><div style="font-family:'Newsreader',serif;font-size:28px;color:#101B33;">184</div></div>
+            <div style="background:#fff;border:1px solid #E7E1D6;border-radius:6px;padding:22px;"><div style="font-size:12px;color:#8a827a;margin-bottom:8px;">Entrance Exams Completed</div><div style="font-family:'Newsreader',serif;font-size:28px;color:#101B33;">146</div></div>
+            <div style="background:#fff;border:1px solid #E7E1D6;border-radius:6px;padding:22px;"><div style="font-size:12px;color:#8a827a;margin-bottom:8px;">Pass Rate</div><div style="font-family:'Newsreader',serif;font-size:28px;color:#101B33;">78%</div></div>
+            <div style="background:#fff;border:1px solid #E7E1D6;border-radius:6px;padding:22px;"><div style="font-size:12px;color:#8a827a;margin-bottom:8px;">Assessments This Term</div><div style="font-family:'Newsreader',serif;font-size:28px;color:#101B33;">26</div></div>
+          </div>
+
+          <div style="background:#101B33;border-radius:8px;padding:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;margin-bottom:32px;">
+            <div>
+              <div style="color:#C9A24B;font-size:11px;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">Upcoming Entrance Examination</div>
+              <div style="font-family:'Newsreader',serif;color:#fff;font-size:19px;margin-bottom:8px;">Saturday, March 13</div>
+              <div style="color:#9aa5c2;font-size:13px;">Registered: 92 · Capacity: 120</div>
+            </div>
+            <button style="background:#C9A24B;border:none;color:#101B33;font-size:13.5px;font-weight:700;padding:13px 22px;border-radius:4px;cursor:pointer;" onClick="{{ goManageExam }}">Manage Examination</button>
+          </div>
+
+          <div style="display:grid;grid-template-columns:{{ overviewGrid }};gap:20px;margin-bottom:32px;">
+            <div style="background:#fff;border:1px solid #E7E1D6;border-radius:8px;padding:24px;">
+              <div style="font-family:'Newsreader',serif;font-size:16px;color:#101B33;margin-bottom:4px;">2027/2028 Admissions</div>
+              <div style="font-size:12px;color:#8a827a;margin-bottom:18px;">Applications to recommended admission</div>
+              <div style="display:flex;flex-direction:column;gap:10px;">
+                <sc-for list="{{ admissionsFunnel }}" as="f" hint-placeholder-count="4">
+                  <div>
+                    <div style="display:flex;justify-content:space-between;font-size:13px;color:#3a352f;margin-bottom:5px;"><span>{{ f.label }}</span><span style="font-weight:600;color:#101B33;">{{ f.value }}</span></div>
+                    <div style="height:10px;background:#F0EBE0;border-radius:5px;overflow:hidden;"><div style="height:100%;width:{{ f.pct }}%;background:linear-gradient(90deg,#101B33,#C9A24B);border-radius:5px;"></div></div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+            <div>
+              <div style="font-family:'Newsreader',serif;font-size:16px;color:#101B33;margin-bottom:14px;">Recent Assessments</div>
+              <div style="display:flex;flex-direction:column;gap:10px;">
+                <sc-for list="{{ recentMgmtAssessments }}" as="a" hint-placeholder-count="3">
+              <div style="background:#fff;border:1px solid #E7E1D6;border-radius:6px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;">
+                <div><div style="font-size:14px;color:#101B33;font-weight:600;">{{ a.title }}</div><div style="font-size:12px;color:#8a827a;margin-top:2px;">{{ a.sub }}</div></div>
+                <div style="font-family:'Newsreader',serif;font-size:15px;color:#8a2c39;">Avg {{ a.avg }}%</div>
+              </div>
+            </sc-for>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isMgmtEntrance }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;">
+            <select style="padding:9px 12px;border:1px solid #DDD6C8;border-radius:4px;font-size:13px;color:#3a352f;"><option>Exam Batch</option></select>
+            <select style="padding:9px 12px;border:1px solid #DDD6C8;border-radius:4px;font-size:13px;color:#3a352f;"><option>Class</option></select>
+            <select style="padding:9px 12px;border:1px solid #DDD6C8;border-radius:4px;font-size:13px;color:#3a352f;"><option>Score</option></select>
+            <select style="padding:9px 12px;border:1px solid #DDD6C8;border-radius:4px;font-size:13px;color:#3a352f;"><option>Status</option></select>
+          </div>
+          <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+            <div style="background:#fff;border:1px solid #E7E1D6;border-radius:8px;overflow:hidden;">
+              <div style="display:grid;grid-template-columns:1.6fr 1.4fr 0.8fr 0.8fr 0.7fr 0.9fr 1fr;padding:14px 20px;background:#FAF7F2;border-bottom:1px solid #E7E1D6;font-size:11.5px;color:#8a827a;text-transform:uppercase;letter-spacing:0.4px;">
+                <div>Candidate</div><div>Exam Number</div><div>Class</div><div>Exam Date</div><div>Score</div><div>Status</div><div>Actions</div>
+              </div>
+              <sc-for list="{{ entranceCandidates }}" as="c" hint-placeholder-count="6">
+                <div style="display:grid;grid-template-columns:1.6fr 1.4fr 0.8fr 0.8fr 0.7fr 0.9fr 1fr;padding:15px 20px;border-bottom:1px solid #F0EBE0;font-size:13.5px;color:#3a352f;align-items:center;">
+                  <div style="font-weight:600;color:#101B33;">{{ c.name }}</div>
+                  <div style="color:#8a827a;font-size:12.5px;">{{ c.examNo }}</div>
+                  <div>{{ c.class }}</div>
+                  <div>{{ c.date }}</div>
+                  <div style="font-weight:600;">{{ c.score }}%</div>
+                  <div><span style="background:{{ c.statusBg }};color:{{ c.statusColor }};padding:4px 11px;border-radius:14px;font-size:11.5px;font-weight:600;">{{ c.status }}</span></div>
+                  <div style="font-size:12px;color:#8a2c39;cursor:pointer;">View Result</div>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+          <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:12px;">
+              <sc-for list="{{ entranceCandidates }}" as="c" hint-placeholder-count="6">
+                <div style="background:#fff;border:1px solid #E7E1D6;border-radius:8px;padding:16px 18px;">
+                  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;">
+                    <div><div style="font-weight:600;color:#101B33;font-size:14.5px;">{{ c.name }}</div><div style="color:#8a827a;font-size:12px;margin-top:2px;">{{ c.examNo }}</div></div>
+                    <span style="background:{{ c.statusBg }};color:{{ c.statusColor }};padding:4px 11px;border-radius:14px;font-size:11px;font-weight:600;white-space:nowrap;">{{ c.status }}</span>
+                  </div>
+                  <div style="display:flex;gap:18px;font-size:13px;color:#3a352f;margin-bottom:12px;">
+                    <div>Class: <span style="font-weight:600;">{{ c.class }}</span></div>
+                    <div>Score: <span style="font-weight:600;">{{ c.score }}%</span></div>
+                  </div>
+                  <button style="width:100%;background:none;border:1px solid #DDD6C8;color:#8a2c39;font-size:13px;font-weight:600;padding:10px;border-radius:4px;cursor:pointer;min-height:44px;">View Result</button>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+        </sc-if>
+
+        <sc-if value="{{ isMgmtAnalytics }}" hint-placeholder-val="{{ false }}">
+          <h2 style="font-family:'Newsreader',serif;font-size:22px;color:#101B33;margin:0 0 18px;">Academic Performance Overview</h2>
+          <div style="font-family:'Newsreader',serif;font-style:italic;color:#8a827a;font-size:13px;margin-bottom:20px;">See how assessment data can reveal weak subjects and topics.</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-bottom:28px;">
+            <div style="background:#fff;border:1px solid #E7E1D6;border-radius:6px;padding:18px;"><div style="font-size:11.5px;color:#8a827a;margin-bottom:6px;">Average Score</div><div style="font-family:'Newsreader',serif;font-size:22px;color:#101B33;">71%</div></div>
+            <div style="background:#fff;border:1px solid #E7E1D6;border-radius:6px;padding:18px;"><div style="font-size:11.5px;color:#8a827a;margin-bottom:6px;">Pass Rate</div><div style="font-family:'Newsreader',serif;font-size:22px;color:#101B33;">82%</div></div>
+            <div style="background:#fff;border:1px solid #E7E1D6;border-radius:6px;padding:18px;"><div style="font-size:11.5px;color:#8a827a;margin-bottom:6px;">Students Below 50%</div><div style="font-family:'Newsreader',serif;font-size:22px;color:#101B33;">14</div></div>
+            <div style="background:#fff;border:1px solid #E7E1D6;border-radius:6px;padding:18px;"><div style="font-size:11.5px;color:#8a827a;margin-bottom:6px;">Strongest Subject</div><div style="font-family:'Newsreader',serif;font-size:18px;color:#101B33;">English Language</div></div>
+            <div style="background:#fff;border:1px solid #E7E1D6;border-radius:6px;padding:18px;"><div style="font-size:11.5px;color:#8a827a;margin-bottom:6px;">Weakest Subject</div><div style="font-family:'Newsreader',serif;font-size:18px;color:#101B33;">Mathematics</div></div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:{{ analyticsGrid }};gap:20px;margin-bottom:28px;">
+            <div style="background:#fff;border:1px solid #E7E1D6;border-radius:8px;padding:24px;">
+              <div style="font-family:'Newsreader',serif;font-size:15px;color:#101B33;margin-bottom:18px;">Subject Performance</div>
+              <div style="display:flex;align-items:flex-end;gap:14px;height:140px;">
+                <sc-for list="{{ subjectChart }}" as="b" hint-placeholder-count="6">
+                  <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;height:100%;justify-content:flex-end;">
+                    <div style="font-size:11px;color:#101B33;font-weight:600;">{{ b.val }}%</div>
+                    <div style="width:100%;background:#C9A24B;border-radius:3px 3px 0 0;height:{{ b.height }}px;"></div>
+                    <div style="font-size:10.5px;color:#8a827a;text-align:center;">{{ b.label }}</div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+            <div style="background:#fff;border:1px solid #E7E1D6;border-radius:8px;padding:24px;">
+              <div style="font-family:'Newsreader',serif;font-size:15px;color:#101B33;margin-bottom:18px;">Performance Over Time</div>
+              <div style="display:flex;align-items:flex-end;gap:14px;height:140px;">
+                <sc-for list="{{ timeChart }}" as="b" hint-placeholder-count="5">
+                  <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;height:100%;justify-content:flex-end;">
+                    <div style="font-size:11px;color:#101B33;font-weight:600;">{{ b.val }}%</div>
+                    <div style="width:100%;background:#101B33;border-radius:3px 3px 0 0;height:{{ b.height }}px;"></div>
+                    <div style="font-size:10.5px;color:#8a827a;text-align:center;">{{ b.label }}</div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+
+          <div style="background:#fff;border:1px solid #E7E1D6;border-radius:8px;padding:24px;margin-bottom:20px;">
+            <div style="font-family:'Newsreader',serif;font-size:15px;color:#101B33;margin-bottom:16px;">Areas Requiring Attention</div>
+            <div style="display:flex;flex-direction:column;gap:12px;">
+              <sc-for list="{{ weakAreas }}" as="w" hint-placeholder-count="3">
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #F0EBE0;">
+                  <div><span style="font-size:13.5px;color:#101B33;font-weight:600;">{{ w.subject }}</span><span style="font-size:13px;color:#6b6560;"> — {{ w.topic }}</span></div>
+                  <div style="font-size:13px;color:#8a2c39;font-weight:600;">Avg Accuracy: {{ w.acc }}%</div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:{{ analyticsGrid }};gap:20px;">
+            <div style="background:#fff;border:1px solid #E7E1D6;border-radius:8px;padding:24px;">
+              <div style="font-family:'Newsreader',serif;font-size:15px;color:#101B33;margin-bottom:14px;">Top Performing Students</div>
+              <sc-for list="{{ topStudents }}" as="ts" hint-placeholder-count="3">
+                <div style="display:flex;justify-content:space-between;padding:9px 0;font-size:13.5px;color:#3a352f;"><span>{{ ts.name }}</span><span style="font-weight:600;color:#101B33;">{{ ts.score }}%</span></div>
+              </sc-for>
+            </div>
+            <div style="background:#fff;border:1px solid #E7E1D6;border-radius:8px;padding:24px;">
+              <div style="font-family:'Newsreader',serif;font-size:15px;color:#101B33;margin-bottom:14px;">Students Requiring Support</div>
+              <sc-for list="{{ supportStudents }}" as="ss" hint-placeholder-count="3">
+                <div style="display:flex;justify-content:space-between;padding:9px 0;font-size:13.5px;color:#3a352f;"><span>{{ ss.name }}</span><span style="font-weight:600;color:#8a2c39;">{{ ss.score }}%</span></div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isMgmtQuestionBank }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;">
+            <select style="padding:9px 12px;border:1px solid #DDD6C8;border-radius:4px;font-size:13px;color:#3a352f;"><option>Assessment Type</option></select>
+            <select style="padding:9px 12px;border:1px solid #DDD6C8;border-radius:4px;font-size:13px;color:#3a352f;"><option>Class</option></select>
+            <select style="padding:9px 12px;border:1px solid #DDD6C8;border-radius:4px;font-size:13px;color:#3a352f;"><option>Subject</option></select>
+            <select style="padding:9px 12px;border:1px solid #DDD6C8;border-radius:4px;font-size:13px;color:#3a352f;"><option>Topic</option></select>
+            <div style="flex:1;"></div>
+            <button style="background:#fff;border:1px solid #DDD6C8;color:#3a352f;font-size:12.5px;font-weight:600;padding:9px 16px;border-radius:4px;cursor:pointer;">Bulk Import Questions</button>
+            <button style="background:#fff;border:1px solid #DDD6C8;color:#3a352f;font-size:12.5px;font-weight:600;padding:9px 16px;border-radius:4px;cursor:pointer;">Create Assessment</button>
+            <button style="background:#101B33;border:none;color:#fff;font-size:12.5px;font-weight:600;padding:9px 16px;border-radius:4px;cursor:pointer;">Add Question</button>
+          </div>
+          <div style="background:#fff;border:1px solid #E7E1D6;border-radius:8px;overflow:hidden;">
+            <div style="display:grid;grid-template-columns:2.2fr 0.7fr 1fr 0.8fr;padding:14px 20px;background:#FAF7F2;border-bottom:1px solid #E7E1D6;font-size:11.5px;color:#8a827a;text-transform:uppercase;letter-spacing:0.4px;">
+              <div>Question</div><div>Correct</div><div>Topic</div><div>Difficulty</div>
+            </div>
+            <sc-for list="{{ questionBankRows }}" as="q" hint-placeholder-count="5">
+              <div style="display:grid;grid-template-columns:2.2fr 0.7fr 1fr 0.8fr;padding:15px 20px;border-bottom:1px solid #F0EBE0;font-size:13px;color:#3a352f;align-items:center;">
+                <div>{{ q.text }}</div>
+                <div style="font-weight:600;color:#101B33;">{{ q.correct }}</div>
+                <div>{{ q.topic }}</div>
+                <div><span style="background:#F3EEE4;color:#8a2c39;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600;">{{ q.difficulty }}</span></div>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isMgmtPlaceholder }}" hint-placeholder-val="{{ false }}">
+          <div style="background:#fff;border:1px solid #E7E1D6;border-radius:8px;padding:60px 40px;text-align:center;color:#8a827a;font-size:14px;">This area is part of the full platform build.</div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  questions = [
+    {id:1, text:"If 3x + 5 = 20, what is the value of x?", options:["3","4","5","6"], correct:"C"},
+    {id:2, text:"What is 15% of 200?", options:["20","25","30","35"], correct:"C"},
+    {id:3, text:"Simplify: 7 + 6 × 2", options:["26","19","13","20"], correct:"B"},
+    {id:4, text:"A rectangle has length 8cm and width 5cm. What is its area?", options:["13 cm²","26 cm²","40 cm²","45 cm²"], correct:"C"},
+    {id:5, text:"What is the next number in the sequence: 2, 4, 8, 16, ...?", options:["18","24","30","32"], correct:"D"},
+    {id:6, text:"Convert 3/4 to a percentage.", options:["34%","75%","43%","57%"], correct:"B"},
+    {id:7, text:"If a train travels 60km in 1.5 hours, what is its average speed?", options:["30 km/h","40 km/h","45 km/h","90 km/h"], correct:"B"},
+    {id:8, text:"What is the value of 5² − 3²?", options:["4","8","16","34"], correct:"C"},
+    {id:9, text:"A shopkeeper sells an item for ₦1,200 making a profit of ₦200. What was the cost price?", options:["₦900","₦1,000","₦1,100","₦1,400"], correct:"B"},
+    {id:10, text:"What is the perimeter of a square with side length 9cm?", options:["18 cm","36 cm","81 cm","45 cm"], correct:"B"},
+  ];
+
+  admissionClasses = ["JS1","JS2","JS3","SS1","SS2"];
+  processSteps = [
+    {n:1,label:"Register Candidate"},{n:2,label:"Select Class"},{n:3,label:"Choose Examination Date"},
+    {n:4,label:"Receive Examination Number"},{n:5,label:"Sit Assessment"},{n:6,label:"Receive Admission Decision"},
+  ];
+  subjects = ["Mathematics","English Language","Basic Science","Biology","Physics","Chemistry","Economics","Government","Computer Studies"];
+  examTypes = ["Internal Assessment","WAEC Mock","NECO Mock","BECE Practice","JAMB Practice","Subject Practice"];
+  recentAssessments = [
+    {title:"Basic Science CA", sub:"Continuous Assessment · 2 days ago", score:"78%"},
+    {title:"Mathematics Practice", sub:"Subject Practice · 4 days ago", score:"65%"},
+    {title:"English Language Mock", sub:"WAEC Mock · 1 week ago", score:"72%"},
+  ];
+  historyItems = [
+    {type:"Basic Science CA", date:"10 Sep", score:"78%"},
+    {type:"Mathematics Practice", date:"7 Sep", score:"65%"},
+    {type:"English Language Mock", date:"3 Sep", score:"72%"},
+    {type:"Government CA", date:"28 Aug", score:"81%"},
+  ];
+  recentMgmtAssessments = [
+    {title:"WAEC Mock Mathematics", sub:"SS3", avg:64},
+    {title:"JS2 Basic Science CA", sub:"Continuous Assessment", avg:72},
+    {title:"Entrance Examination Batch 2", sub:"Candidates", avg:68},
+  ];
+  entranceCandidatesRaw = [
+    {name:"David Adeyemi", examNo:"JNJ/ENT/2027/0042", class:"JS1", date:"13 Mar", score:76, status:"Passed"},
+    {name:"Sarah Okafor", examNo:"JNJ/ENT/2027/0043", class:"JS1", date:"13 Mar", score:88, status:"Passed"},
+    {name:"Michael James", examNo:"JNJ/ENT/2027/0044", class:"JS2", date:"13 Mar", score:47, status:"Review"},
+    {name:"Chisom Eze", examNo:"JNJ/ENT/2027/0045", class:"JS1", date:"13 Mar", score:63, status:"Passed"},
+    {name:"Daniel Ogunleye", examNo:"JNJ/ENT/2027/0046", class:"SS1", date:"13 Mar", score:55, status:"Review"},
+    {name:"Tolu Adebayo", examNo:"JNJ/ENT/2027/0047", class:"JS2", date:"13 Mar", score:91, status:"Passed"},
+  ];
+  subjectChartRaw = [
+    {label:"Mathematics", val:58},{label:"English", val:79},{label:"Basic Sci.", val:71},
+    {label:"Biology", val:68},{label:"Physics", val:60},{label:"Chemistry", val:64},
+  ];
+  timeChartRaw = [
+    {label:"May", val:62},{label:"Jun", val:65},{label:"Jul", val:66},{label:"Aug", val:69},{label:"Sep", val:71},
+  ];
+  weakAreasRaw = [
+    {subject:"Mathematics", topic:"Trigonometry", acc:43},
+    {subject:"Physics", topic:"Electricity", acc:48},
+    {subject:"Chemistry", topic:"Stoichiometry", acc:51},
+  ];
+  topStudents = [{name:"Sarah Okafor",score:88},{name:"Tolu Adebayo",score:91},{name:"Blessing Nwosu",score:85}];
+  supportStudents = [{name:"Michael James",score:47},{name:"Daniel Ogunleye",score:55},{name:"Favour Johnson",score:41}];
+  questionBankRows = [
+    {text:"Solve for x: 2x + 3 = 11", correct:"B", topic:"Algebra", difficulty:"Easy"},
+    {text:"Factorise x² − 9", correct:"A", topic:"Algebra", difficulty:"Medium"},
+    {text:"Find the value of sin 30°", correct:"C", topic:"Trigonometry", difficulty:"Hard"},
+    {text:"Simplify (2/3) + (1/6)", correct:"D", topic:"Fractions", difficulty:"Easy"},
+    {text:"What is the LCM of 8 and 12?", correct:"B", topic:"Number Theory", difficulty:"Medium"},
+  ];
+
+  guidedSteps = [
+    {screen:'admissions', caption:"See how prospective parents can begin the admissions process.", label:'Admissions Page'},
+    {screen:'register', caption:"Registration takes minutes — the system issues an official examination number instantly.", label:'Candidate Registration'},
+    {screen:'dashboard', caption:"Every candidate gets a personal dashboard with their exam details.", label:'Candidate Dashboard'},
+    {screen:'exam', caption:"See how candidates and students can sit timed computer-based assessments.", label:'CBT Examination'},
+    {screen:'result', caption:"Results are generated immediately with a subject-by-subject breakdown.", label:'Examination Result'},
+    {screen:'management-overview', caption:"See how the school can monitor assessments and candidates from one place.", label:'Management Overview'},
+    {screen:'management-entrance', caption:"Review individual candidates, scores and status in one table.", label:'Entrance Examination Management'},
+    {screen:'management-analytics', caption:"See how assessment data can reveal performance trends and learning gaps.", label:'Academic Analytics'},
+  ];
+  admissionsFunnelRaw = [
+    {label:'Applications', value:214},
+    {label:'Registered for Entrance Assessment', value:184},
+    {label:'Assessment Completed', value:146},
+    {label:'Recommended for Admission', value:112},
+  ];
+
+  state = {
+    screen:'home', mgmtSection:'overview', mobileNavOpen:false,
+    guidedActive:false, guidedStep:0,
+    registerStep:1, registered:false, submitting:false,
+    reg:{ firstName:'David', lastName:'Adeyemi', gender:'Male', dob:'', currentSchool:'',
+      classApplying:'JS1', session:'2027/2028', examDate:'Saturday, March 13',
+      parentName:'', parentPhone:'', parentEmail:'', note:'' },
+    showSlip:false,
+    examIndex:0, answers:{}, flagged:{}, examSubmitted:false, showSubmitModal:false,
+    timerSeconds: 48*60+32, resultScore:76,
+    isMobile: (typeof window!=='undefined' && window.innerWidth < 768),
+  };
+
+  componentDidMount(){
+    this._t = setInterval(()=>{
+      if(this.state.screen==='exam' && !this.state.examSubmitted && this.state.timerSeconds>0){
+        this.setState(s=>({timerSeconds: s.timerSeconds-1}));
+      }
+    },1000);
+    this._onResize = () => {
+      const m = window.innerWidth < 768;
+      if(m !== this.state.isMobile) this.setState({isMobile:m});
+    };
+    window.addEventListener('resize', this._onResize);
+    this._onResize();
+  }
+  componentWillUnmount(){ clearInterval(this._t); window.removeEventListener('resize', this._onResize); }
+
+  stopProp = (e)=>{ if(e && e.stopPropagation) e.stopPropagation(); };
+
+  goTo = (screen) => { this.setState({screen, mobileNavOpen:false}); };
+  goToAsStudent = () => this.setState({screen:'dashboard', registered:true, mobileNavOpen:false});
+  goToManagement = () => this.goTo('management');
+  goToAdmissions = () => this.goTo('admissions');
+  goToRegister = () => this.setState({screen:'register', mobileNavOpen:false});
+  goHome = () => this.setState({screen:'home', guidedActive:false, mobileNavOpen:false});
+  toggleMobileNav = () => this.setState(s=>({mobileNavOpen:!s.mobileNavOpen}));
+  goManageExam = () => this.setState({mgmtSection:'entrance'});
+
+  startGuided = () => { this.setState({guidedActive:true, guidedStep:0, mobileNavOpen:false}); this.applyGuidedStep(0); };
+  exitGuided = () => this.setState({guidedActive:false, mobileNavOpen:false});
+  nextGuidedStep = () => { const n=Math.min(this.state.guidedStep+1, this.guidedSteps.length-1); this.setState({guidedStep:n}); this.applyGuidedStep(n); };
+  finishGuidedDemo = () => this.setState({guidedActive:false, screen:'home', mobileNavOpen:false});
+  prevGuidedStep = () => { const n=Math.max(this.state.guidedStep-1,0); this.setState({guidedStep:n}); this.applyGuidedStep(n); };
+  applyGuidedStep = (n) => {
+    const step = this.guidedSteps[n];
+    if(step.screen==='register'){ this.setState({screen:'register', registered:true, registerStep:1, showSlip:false}); }
+    else if(step.screen==='exam'){
+      // 10/10 answered, 8 correct, 2 incorrect — kept consistent with the result step
+      this.setState({screen:'exam', examSubmitted:false, examIndex:3,
+        answers:{1:'C',2:'C',3:'B',4:'C',5:'A',6:'B',7:'B',8:'C',9:'A',10:'B'},
+        flagged:{4:true}, timerSeconds:48*60+32, showSubmitModal:false});
+    }
+    else if(step.screen==='result'){ this.computeResult(); this.setState({screen:'result'}); }
+    else if(step.screen==='management-overview'){ this.setState({screen:'management', mgmtSection:'overview'}); }
+    else if(step.screen==='management-entrance'){ this.setState({screen:'management', mgmtSection:'entrance'}); }
+    else if(step.screen==='management-analytics'){ this.setState({screen:'management', mgmtSection:'analytics'}); }
+    else { this.setState({screen:step.screen}); }
+  };
+
+  regField = (field) => (e) => { const v=e.target.value; this.setState(s=>({reg:{...s.reg,[field]:v}})); };
+  firstNameChange = this.regField('firstName');
+  lastNameChange = this.regField('lastName');
+  dobChange = this.regField('dob');
+  currentSchoolChange = this.regField('currentSchool');
+  parentNameChange = this.regField('parentName');
+  parentPhoneChange = this.regField('parentPhone');
+  parentEmailChange = this.regField('parentEmail');
+  noteChange = this.regField('note');
+
+  regNext = () => this.setState(s=>({registerStep: Math.min(s.registerStep+1,4)}));
+  regBack = () => this.setState(s=>({registerStep: Math.max(s.registerStep-1,1)}));
+  submitRegistration = () => { this.setState({submitting:true}); setTimeout(()=>this.setState({submitting:false, registered:true}), 700); };
+  viewSlip = () => this.setState({showSlip:true});
+  closeSlip = () => this.setState({showSlip:false});
+  continueToDashboard = () => this.setState({screen:'dashboard'});
+
+  startExam = () => this.setState({screen:'exam', examSubmitted:false, examIndex:0, answers:{}, flagged:{}, timerSeconds:48*60+32, showSubmitModal:false});
+  goToQuestion = (i) => this.setState({examIndex:i});
+  nextQuestion = () => this.setState(s=>({examIndex:Math.min(s.examIndex+1,9)}));
+  prevQuestion = () => this.setState(s=>({examIndex:Math.max(s.examIndex-1,0)}));
+  selectAnswer = (qid,letter) => this.setState(s=>({answers:{...s.answers,[qid]:letter}}));
+  toggleFlag = (qid) => this.setState(s=>{ const f={...s.flagged}; f[qid]=!f[qid]; return {flagged:f}; });
+  attemptSubmit = () => {
+    const unanswered = this.questions.filter(q=>!this.state.answers[q.id]).length;
+    if(unanswered>0) this.setState({showSubmitModal:true}); else this.finalizeSubmit();
+  };
+  cancelSubmit = () => this.setState({showSubmitModal:false});
+  finalizeSubmit = () => {
+    this.setState({showSubmitModal:false, submitting:true});
+    setTimeout(()=>{ this.computeResult(); this.setState({submitting:false, screen:'result', examSubmitted:true}); }, 800);
+  };
+  computeResult = () => {
+    const correct = this.questions.filter(q=>this.state.answers[q.id]===q.correct).length;
+    const mathScore = Math.round((correct / 10) * 100);
+    this.setState({resultScore: mathScore});
+  };
+  retakePractice = () => this.goTo('dashboard');
+  mgmtGoTo = (section) => this.setState({mgmtSection:section, screen:'management'});
+
+  renderVals(){
+    const s = this.state;
+    const mm = Math.floor(s.timerSeconds/60).toString().padStart(2,'0');
+    const ss = (s.timerSeconds%60).toString().padStart(2,'0');
+    const q = this.questions[s.examIndex];
+    const answeredCount = this.questions.filter(qq=>s.answers[qq.id]).length;
+    const unansweredCount = 10-answeredCount;
+    const optionLetters=['A','B','C','D'];
+
+    const navItems = this.questions.map((qq,i)=>{
+      let bg='#fff', fg='#3a352f', border='#DDD6C8';
+      if(i===s.examIndex){ bg='#101B33'; fg='#fff'; border='#101B33'; }
+      else if(s.flagged[qq.id]){ bg='#F6E4E4'; fg='#8a2c39'; border='#8a2c39'; }
+      else if(s.answers[qq.id]){ bg='#F3EEE4'; fg='#101B33'; border='#C9A24B'; }
+      return { n:i+1, bg, fg, border, goTo: () => this.goToQuestion(i) };
+    });
+
+    const options = q.options.map((t,i)=>{
+      const letter = optionLetters[i];
+      const selected = s.answers[q.id]===letter;
+      return {
+        letter, text:t, select: () => this.selectAnswer(q.id, letter),
+        bg: selected ? '#F3EEE4' : '#fff',
+        borderColor: selected ? '#C9A24B' : '#E7E1D6',
+        badgeBg: selected ? '#101B33' : '#F0EBE0',
+        badgeColor: selected ? '#E4C77E' : '#6b6560',
+        badgeBorder: selected ? '#101B33' : '#DDD6C8',
+      };
+    });
+
+    const isFlaggedCurrent = !!s.flagged[q.id];
+    const genderChips = ['Male','Female'].map(v=>{
+      const active = s.reg.gender===v;
+      return { label:v, select:()=>this.setState(st=>({reg:{...st.reg,gender:v}})), bg: active?'#101B33':'#fff', fg: active?'#fff':'#3a352f', border: active?'#101B33':'#DDD6C8' };
+    });
+    const classChips = ['JS1','JS2','JS3','SS1','SS2'].map(v=>{
+      const active = s.reg.classApplying===v;
+      return { label:v, select:()=>this.setState(st=>({reg:{...st.reg,classApplying:v}})), bg: active?'#101B33':'#fff', fg: active?'#fff':'#3a352f', border: active?'#101B33':'#DDD6C8' };
+    });
+    const examDateChips = ['Saturday, March 13','Saturday, March 20'].map(v=>{
+      const active = s.reg.examDate===v;
+      return { label:v, select:()=>this.setState(st=>({reg:{...st.reg,examDate:v}})), bg: active?'#101B33':'#fff', fg: active?'#fff':'#3a352f', border: active?'#101B33':'#DDD6C8' };
+    });
+
+    const stepColors = [1,2,3,4].map(n=>({ color: n<=s.registerStep ? '#C9A24B' : '#E7E1D6' }));
+
+    const mathScore = s.resultScore;
+    const overallScore = mathScore;
+    const passed = overallScore>=50;
+    const correctCount = this.questions.filter(qq=>s.answers[qq.id]===qq.correct).length;
+    const incorrectCount = answeredCount-correctCount;
+    const usedSeconds = (60*60) - s.timerSeconds;
+    const um = Math.floor(usedSeconds/60), usec=usedSeconds%60;
+
+    const entranceCandidates = this.entranceCandidatesRaw.map(c=>({
+      ...c,
+      statusBg: c.status==='Passed' ? '#F3EEE4' : '#F6E4E4',
+      statusColor: c.status==='Passed' ? '#8a6a1f' : '#8a2c39',
+    }));
+
+    const maxSubj = Math.max(...this.subjectChartRaw.map(x=>x.val));
+    const subjectChart = this.subjectChartRaw.map(x=>({label:x.label, val:x.val, height: Math.round((x.val/100)*120)}));
+    const maxTime = Math.max(...this.timeChartRaw.map(x=>x.val));
+    const timeChart = this.timeChartRaw.map(x=>({label:x.label, val:x.val, height: Math.round((x.val/100)*120)}));
+
+    const sidebarDefs = [
+      {label:'Overview', key:'overview'},{label:'Entrance Examinations', key:'entrance'},
+      {label:'Question Bank', key:'questionbank'},{label:'Analytics', key:'analytics'},
+    ];
+    const sidebarItems = sidebarDefs.map(d=>{
+      const active = s.mgmtSection===d.key;
+      return { label:d.label, goTo: ()=>this.mgmtGoTo(d.key), bg: active?'#1a274e':'transparent', border: active?'#C9A24B':'transparent', color: active?'#fff':'#c9d0e6' };
+    });
+    const mobilePillItems = sidebarDefs.map(d=>{
+      const active = s.mgmtSection===d.key;
+      return { label:d.label, goTo: ()=>this.mgmtGoTo(d.key), bg: active?'#C9A24B':'#1a274e', color: active?'#101B33':'#c9d0e6' };
+    });
+
+    const m = s.isMobile;
+    const responsive = {
+      isMobile: m, isDesktop: !m,
+      headerPad: m ? '10px 16px' : '14px 24px',
+      crestSize: m ? '34px' : '42px',
+      crestFontSize: m ? '12px' : '15px',
+      titleFontSize: m ? '13px' : '15px',
+      subtitleFontSize: m ? '9.5px' : '11px',
+      heroPad: m ? '40px 20px 48px' : '80px 24px 96px',
+      heroHeadline: m ? '34px' : '44px',
+      admHeroPad: m ? '40px 20px 44px' : '64px 24px 84px',
+      admHeadline: m ? '28px' : '38px',
+      twoColGrid: m ? '1fr' : '1fr 1fr',
+      dashboardGrid: m ? '1fr' : '2fr 1fr',
+      examGrid: m ? '1fr' : '1fr 260px',
+      navDisplay: m ? 'flex' : 'grid',
+      navGridCols: m ? 'none' : 'repeat(5,1fr)',
+      navOverflow: m ? 'auto' : 'visible',
+      navBtnMinWidth: m ? '42px' : 'auto',
+      resultMinmax: m ? '100px' : '120px',
+      scoreFontSize: m ? '38px' : '52px',
+      mgmtWrapperDirection: m ? 'column' : 'row',
+      mgmtSidebarWidth: m ? '100%' : '220px',
+      mgmtContentPad: m ? '20px 16px 56px' : '36px 32px 80px',
+      mgmtStatsMinmax: m ? '135px' : '200px',
+      overviewGrid: m ? '1fr' : '1.3fr 1fr',
+      analyticsGrid: m ? '1fr' : '1fr 1fr',
+      guidedPad: m ? '10px 16px' : '12px 24px',
+    };
+
+    return {
+      ...responsive,
+      mobilePillItems,
+      isHome: s.screen==='home', isAdmissions: s.screen==='admissions', isRegister: s.screen==='register',
+      isDashboard: s.screen==='dashboard', isExam: s.screen==='exam', isResult: s.screen==='result',
+      isManagement: s.screen==='management',
+      isMgmtOverview: s.mgmtSection==='overview', isMgmtEntrance: s.mgmtSection==='entrance',
+      isMgmtAnalytics: s.mgmtSection==='analytics', isMgmtQuestionBank: s.mgmtSection==='questionbank',
+      isMgmtPlaceholder: s.mgmtSection==='placeholder',
+      mobileNavOpen: s.mobileNavOpen, toggleMobileNav: this.toggleMobileNav,
+      goHome: this.goHome, goToAdmissions: this.goToAdmissions, goToAsStudent: this.goToAsStudent,
+      goToManagement: this.goToManagement, goToRegister: this.goToRegister,
+      startGuided: this.startGuided,
+      guidedActive: s.guidedActive,
+      guidedCaption: this.guidedSteps[s.guidedStep].caption,
+      guidedStepNum: s.guidedStep+1, guidedTotal: this.guidedSteps.length,
+      guidedIsLast: s.guidedStep===this.guidedSteps.length-1,
+      guidedIsNotLast: s.guidedStep!==this.guidedSteps.length-1,
+      nextGuidedStep: this.nextGuidedStep, prevGuidedStep: this.prevGuidedStep, exitGuided: this.exitGuided,
+      finishGuidedDemo: this.finishGuidedDemo,
+
+      admissionClasses: this.admissionClasses, processSteps: this.processSteps,
+
+      registerStep: s.registerStep, registered: s.registered, registerNotDone: !s.registered, submitting: s.submitting,
+      regStep1: s.registerStep===1, regStep2: s.registerStep===2, regStep3: s.registerStep===3, regStep4: s.registerStep===4,
+      regNotStep4: s.registerStep!==4,
+      backVisibility: s.registerStep===1 ? 'hidden' : 'visible',
+      reg: s.reg, genderChips, classChips, examDateChips, stepIndicators: stepColors,
+      firstNameChange:this.firstNameChange, lastNameChange:this.lastNameChange, dobChange:this.dobChange,
+      currentSchoolChange:this.currentSchoolChange, parentNameChange:this.parentNameChange,
+      parentPhoneChange:this.parentPhoneChange, parentEmailChange:this.parentEmailChange, noteChange:this.noteChange,
+      regNext: this.regNext, regBack: this.regBack, submitRegistration: this.submitRegistration,
+      showSlip: s.showSlip, viewSlip: this.viewSlip, closeSlip: this.closeSlip, continueToDashboard: this.continueToDashboard,
+      stopProp: this.stopProp,
+
+      candidateName: `${s.reg.firstName} ${s.reg.lastName}`, examNumber: 'JNJ/ENT/2027/0042',
+
+      recentAssessments: this.recentAssessments, subjects: this.subjects, historyItems: this.historyItems, examTypes: this.examTypes,
+      startExam: this.startExam,
+
+      questionNum: s.examIndex+1, questionText: q.text, options, navItems,
+      timerDisplay: `${mm}:${ss}`, prevQuestion: this.prevQuestion, nextQuestion: this.nextQuestion,
+      toggleFlagCurrent: () => this.toggleFlag(q.id),
+      flagLabel: isFlaggedCurrent ? 'Flagged ✓' : 'Flag Question',
+      flagBorder: isFlaggedCurrent ? '#8a2c39' : '#DDD6C8', flagColor: isFlaggedCurrent ? '#8a2c39' : '#3a352f',
+      attemptSubmit: this.attemptSubmit,
+      showSubmitModal: s.showSubmitModal, cancelSubmit: this.cancelSubmit, finalizeSubmit: this.finalizeSubmit,
+      unansweredCount, answeredCount, isFirstQuestion: s.examIndex===0, isLastQuestion: s.examIndex===9,
+
+      mathScore, overallScore, passed,
+      statusLabel: passed ? 'Passed' : 'Under Review', statusBg: passed ? '#C9A24B' : '#F6E4E4', statusColor: passed ? '#101B33' : '#8a2c39',
+      correctCount, incorrectCount, timeUsedDisplay: `${um.toString().padStart(2,'0')}:${usec.toString().padStart(2,'0')}`,
+      retakePractice: this.retakePractice,
+
+      admissionsFunnel: this.admissionsFunnelRaw.map(f=>({...f, pct: Math.round((f.value/this.admissionsFunnelRaw[0].value)*100)})),
+      recentMgmtAssessments: this.recentMgmtAssessments, entranceCandidates, sidebarItems,
+      goManageExam: this.goManageExam,
+      subjectChart, timeChart, weakAreas: this.weakAreasRaw, topStudents: this.topStudents, supportStudents: this.supportStudents,
+      questionBankRows: this.questionBankRows,
+    };
+  }
+}
+
+</script>
+</body>
+</html>
